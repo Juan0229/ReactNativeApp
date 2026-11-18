@@ -1,13 +1,17 @@
 {
   "expo": {
-    "name": "Water-Seven-app",
+    "name": "Water Seven",
     "slug": "Water-Seven-app",
     "version": "1.0.0",
+    "scheme": "waterseven",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Water Seven usa tu ubicación para encontrar fuentes de agua potable cercanas."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -15,10 +19,26 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Water Seven usa tu ubicación para encontrar fuentes de agua potable cercanas."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Water Seven usa tu galería para que pongas tu foto de perfil y adjuntes fotos en la comunidad."
+        }
+      ]
+    ]
   }
 }
